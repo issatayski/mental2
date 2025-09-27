@@ -189,7 +189,8 @@ button:disabled{
     flex-direction: column;      /* стэк вертикально */
     align-items: flex-start;     /* выравнивание по левому краю */
     gap: 6px;                    /* расстояние между строками */
-    text-align: left;
+        margin-top: 60px;
+        align-items: center;
   }
 
   /* Подписи ("Контакты:", "Сайт:") — компактные, но контрастные */
