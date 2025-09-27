@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тренажёр ментальной арифметики</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout" id="app">
+    <!-- Display -->
+    <section class="display" aria-live="polite" aria-atomic="true">
+      <div id="displayText" class="display-text"></div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <form id="controlsForm" class="controls-form">
+        <fieldset>
+          <legend data-i18n="opsLegend">Операции</legend>
+          <label><input type="checkbox" name="ops" value="+" checked> <span>+</span></label>
+          <label><input type="checkbox" name="ops" value="-"> <span>−</span></label>
+          <label><input type="checkbox" name="ops" value="*"> <span>×</span></label>
+          <label><input type="checkbox" name="ops" value=":"> <span>÷</span></label>
+          <p class="hint" data-i18n="opsHint">Можно выбрать несколько.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="rangeLegend">Диапазон чисел</legend>
+          <div class="range-grid">
+            <label>
+              <span data-i18n="fromLabel">От</span>
+              <input type="number" id="minVal" value="-9" step="1" />
+            </label>
+            <label>
+              <span data-i18n="toLabel">До</span>
+              <input type="number" id="maxVal" value="9" step="1" />
+            </label>
+          </div>
+          <p id="rangeError" class="error" hidden data-i18n="rangeError">Значение «От» должно быть меньше или равно «До».</p>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="speedLegend">Скорость показа</legend>
+          <label><input type="radio" name="speed" value="slow" checked> <span data-i18n="speedSlow">Медленно</span></label>
+          <label><input type="radio" name="speed" value="medium"> <span data-i18n="speedMed">Средне</span></label>
+          <label><input type="radio" name="speed" value="fast"> <span data-i18n="speedFast">Быстро</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="countLegend">Количество показов</legend>
+          <input type="number" id="count" value="20" min="1" step="1" />
+          <p class="hint" data-i18n="countHint">Сколько раз появятся числа/выражения.</p>
+          <p id="countError" class="error" hidden data-i18n="countError">Минимум 1.</p>
+        </fieldset>
+
+        <div class="buttons">
+          <button type="button" id="startBtn" data-i18n="startBtn">Старт</button>
+          <button type="button" id="resultBtn" disabled data-i18n="resultBtn">Результат</button>
+          <button type="button" id="langBtn" aria-label="Сменить язык">RU / KZ</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span data-i18n="contacts">Контакты:</span>
+      <strong id="ownerPhone">+7 7XX XXX-XX-XX</strong>
+      <span>&nbsp;&nbsp;</span>
+      <span data-i18n="siteLabel">Сайт:</span>
+      <a id="ownerSite" href="https://ваш-сайт.kz" target="_blank" rel="noopener">ваш-сайт.kz</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
