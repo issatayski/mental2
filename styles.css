@@ -173,3 +173,54 @@ button:disabled{
     order:-1;
   }
 }
+
+
+
+/* === Mobile footer readability for Contacts & Site === */
+@media (max-width: 767px) {
+  .footer {
+    padding: 8px 0;
+  }
+
+  .footer-inner {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px;
+    flex-direction: column;      /* стэк вертикально */
+    align-items: flex-start;     /* выравнивание по левому краю */
+    gap: 6px;                    /* расстояние между строками */
+    text-align: left;
+  }
+
+  /* Подписи ("Контакты:", "Сайт:") — компактные, но контрастные */
+  .footer-inner [data-i18n="contacts"],
+  .footer-inner [data-i18n="siteLabel"] {
+    display: block;
+    font-size: 13px;
+    line-height: 1.3;
+    color: var(--muted);
+    letter-spacing: .2px;
+  }
+
+  /* Значения — крупнее и жирнее */
+  #ownerPhone,
+  #ownerSite {
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  /* Ссылка на сайт — удобный тап-таргет и переносы длинных доменов */
+  #ownerSite {
+    padding: 2px 0;
+    text-underline-offset: 3px;
+    word-break: break-word;      /* переносим по словам */
+    overflow-wrap: anywhere;     /* переносим где угодно при необходимости */
+  }
+
+  /* Убираем "пустой" span с &nbsp;&nbsp; между телефоном и сайтом (как в вашей разметке) */
+  .footer-inner > span:nth-of-type(2) {
+    display: none;
+  }
+}
